@@ -108,13 +108,13 @@ for (let i = 0; i < cols.length; i++) {
     clearTimeout(timeouts[i]);
     letter.classList.add("box-close");
     letter.classList.remove("box-open");
-    timeouts[i] = setTimeout(openContent, 1000, colContent);
+    timeouts[i] = setTimeout(openContent, 500, colContent);
   });
   cols[i].addEventListener("mouseleave", () => {
     clearTimeout(timeouts[i]);
     colContent.classList.remove("box-open");
     colContent.classList.add("box-close");
-    timeouts[i] = setTimeout(openLetter, 1000, letter);
+    timeouts[i] = setTimeout(openLetter, 500, letter);
   });
 }
 
