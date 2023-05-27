@@ -100,18 +100,21 @@ for (let i = 0; i < videoplayers.length; i++) {
 }
 
 var cols = document.querySelectorAll(".col");
+var timeouts = new Array(3);
 for (let i = 0; i < cols.length; i++) {
   const colContent = cols[i].getElementsByClassName("col-content")[0];
   const letter = cols[i].getElementsByClassName("letter")[0];
   cols[i].addEventListener("mouseenter", () => {
+    clearTimeout(timeouts[i]);
     letter.classList.add("box-close");
     letter.classList.remove("box-open");
-    setTimeout(openContent, 1000, colContent);
+    timeouts[i] = setTimeout(openContent, 1000, colContent);
   });
   cols[i].addEventListener("mouseleave", () => {
+    clearTimeout(timeouts[i]);
     colContent.classList.remove("box-open");
     colContent.classList.add("box-close");
-    setTimeout(openLetter, 1000, letter);
+    timeouts[i] = setTimeout(openLetter, 1000, letter);
   });
 }
 
