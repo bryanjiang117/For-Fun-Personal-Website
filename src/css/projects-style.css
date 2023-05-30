@@ -134,20 +134,31 @@ section {
   border-radius: 50%;
 }
 
+.card-one .cover {
+  background-color: var(--d-navy);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
 .one .card-1 {
   transition-delay: 600ms;
 }
 
 .one .card-2 {
-  transition-delay: 900ms;
+  transition: all 1s;
+  transition-delay: 800ms;
 }
 
 .one .card-3 {
+  transition: all 1s;
   transition-delay: 1000ms;
 }
 
 .front-card {
   background-color: var(--d-navy);
+  position: relative;
   /* border-right: 1px solid var(--d-aqua); */
   /* border-top: 1px solid var(--d-aqua); */
   z-index: 3;
@@ -174,19 +185,7 @@ section {
   pointer-events: none;
 }
 
-.no-delay {
-  transition-delay: 0ms !important;
-}
-
-.short-delay {
-  transition-delay: 100ms !important;
-}
-
-.long-delay {
-  transition-delay: 200ms !important;
-}
-
-.card .corner {
+.card-one .corner {
   background-color: var(--d-navy);
   display: inline-block;
   height: 20%;
@@ -376,6 +375,19 @@ b {
 }
 
 /************************** Animations **************************/
+
+.no-delay {
+  transition-delay: 0ms !important;
+}
+
+.short-delay {
+  transition-delay: 100ms !important;
+}
+
+.long-delay {
+  transition-delay: 200ms !important;
+}
+
 .hidden-left-sm {
   opacity: 0;
   transform: translateX(-0.7rem);
@@ -427,6 +439,10 @@ b {
   animation: box-close 1s forwards;
 }
 
+.slide-left {
+  animation: slide-left 1s 0.5s forwards;
+}
+
 @keyframes box-open {
   0% {
     opacity: 0;
@@ -454,5 +470,14 @@ b {
   100% {
     opacity: 0;
     transform: scale(0%, 1%);
+  }
+}
+
+@keyframes slide-left {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translateX(-100%);
   }
 }

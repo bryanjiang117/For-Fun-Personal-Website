@@ -4,20 +4,32 @@ var darkNavy = styles.getPropertyValue("--d-navy");
 var aqua = styles.getPropertyValue("--aqua");
 var gray = styles.getPropertyValue("--gray");
 
+// remove scrollbar
+
 var page = document.getElementById("page");
-page.style.right = page.clientWidth - page.offsetWidth + "px"; //shift page to the right to remove vertical scrollbar
+page.style.right = page.clientWidth - page.offsetWidth + "px"; //shift page to the right
 page.style.width = 2 * page.offsetWidth - page.clientWidth + "px"; //increase page width to accomodate for the shift
+
+// end of remove scrollbar
+
+// animations upon viewing
 
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      console.log(entry);
+      var cover = entry.target.getElementsByClassName("cover");
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
+        if (cover != undefined && cover.length != 0) {
+          cover[0].classList.add("slide-left");
+        }
       } else {
         entry.target.classList.remove("show");
         if (entry.target.classList.contains("card-one")) {
           resetCard(entry.target);
+        }
+        if (cover != undefined && cover.length != 0) {
+          cover[0].classList.remove("slide-left");
         }
       }
     });
@@ -29,7 +41,11 @@ const observer = new IntersectionObserver(
 const hiddenElements = document.querySelectorAll(
   ".hidden-left, .hidden-left-sm, .hidden-right, .hidden-right-sm, .hidden-top"
 );
-hiddenElements.forEach((el) => observer.observe(el));
+hiddenElements.forEach((element) => observer.observe(element));
+
+// end of animations upon viewing
+
+// cards
 
 function moveCard() {
   const cards = document.querySelectorAll(".card-one");
@@ -89,6 +105,10 @@ function resetCard(card) {
   }
 }
 
+// end of cards
+
+// TFT
+
 var videoplayers = document.querySelectorAll(".videoplayer");
 for (let i = 0; i < videoplayers.length; i++) {
   videoplayers[i].onmouseover = function () {
@@ -127,3 +147,5 @@ function openLetter(letter) {
   letter.classList.remove("box-close");
   letter.classList.add("box-open");
 }
+
+// end of TFT
