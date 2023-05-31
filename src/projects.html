@@ -46,12 +46,13 @@
 
     <div class="full-container">
       <div class="container-fluid page" id="page">
+        <!------------------------------- Page One ------------------------------->
         <section class="one">
           <!-- Navbar -->
           <nav class="navbar navbar-expand-sm" onclick="navbarColor">
             <div class="container-fluid">
               <div class="navbar-brand">
-                <a href="home.html">
+                <a href="index.html">
                   <i class="fa-solid fa-code"></i>
                 </a>
               </div>
@@ -90,7 +91,8 @@
                   <i class="fa-solid fa-share"></i>
                 </div>
               </div>
-              <img src="/assets/simplistic-design-inspiration.png" alt="" />
+              <h1>Run Tournaments</h1>
+              <img src="/assets/tournament-organizer/match.png" alt="" />
             </div>
 
             <div
@@ -103,7 +105,8 @@
                   <i class="fa-solid fa-share"></i>
                 </div>
               </div>
-              <img src="/assets/simplistic-design-inspiration.png" alt="" />
+              <h1>Generate Brackets</h1>
+              <img src="/assets/tournament-organizer/search.png" alt="" />
             </div>
 
             <div
@@ -111,12 +114,14 @@
               id="card1"
               onclick="moveCard()"
             >
+              <div class="cover"></div>
               <div class="corner">
                 <div class="arrow">
                   <i class="fa-solid fa-share"></i>
                 </div>
               </div>
-              <img src="/assets/simplistic-design-inspiration.png" alt="" />
+              <h1>Add Teams and Players</h1>
+              <img src="/assets/tournament-organizer/editor.png" alt="" />
             </div>
 
             <div class="title">
@@ -133,40 +138,117 @@
             </div>
           </div>
         </section>
+        <!------------------------------- End of Page One ------------------------------->
+
+        <!------------------------------- Page Two ------------------------------->
         <section class="two">
-          <div class="grid">
-            <div class="title">
+          <div class="container-fluid grid">
+            <header>
               <h1 class="hidden-top">Videogame Remake</h1>
               <h6 class="hidden-top">Teamfight Tactics</h6>
-            </div>
-            <div class="container-fluid card-container">
-              <video class="card card-two card-1 videoplayer hidden-left" muted loop>
-                <source
-                  src="../assets/tft/vi+veigar+varus.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <video class="card card-two card-2 videoplayer hidden-left" muted loop>
-                <source
-                  src="../assets/tft/syndra-level-up.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <video class="card card-two card-3 videoplayer hidden-left" muted loop>
-                <source
+              <hr />
+            </header>
+            <div class="col col1">
+              <div class="letter">T</div>
+              <div class="col-content">
+                <p>
+                  I recreated <b>Teamfight Tactics</b>, a popular game by
+                  <b>Riot Games</b>, using <b>Java GUI</b>. Over <b>months</b>,
+                  my friend <b>Eric</b> and <b>I</b> wrote <b>thousands</b> of
+                  lines of <b>code</b> through <b>GitHub</b>, <b>learning</b> as
+                  we went. This would <b>later</b> make learning
+                  <b>JavaScript</b> a <b>walk</b> in the <b>park</b>.
+                </p>
+                <video
                   src="../assets/tft/darius-vs-sivir.mp4"
+                  class="videoplayer"
                   type="video/mp4"
-                />
-              </video>
+                  muted
+                  loop
+                ></video>
+                <div class="container-fluid champ-descrip">
+                  <p>
+                    Darius: swings his axe in a circle, healing him per enemy
+                    hit<br />
+                    Riven: becomes empowered with a temporary stats boost <br />
+                    Yasuo: knocks up the furthest enemy, slashing them <br />
+                    Sivir: throws a boomeranging shuriken damaging all in path
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col col2">
+              <div class="letter">F</div>
+              <div class="col-content">
+                <p>
+                  I <b>replicated</b> the main <b>gameplay</b>:
+                  <b>20+</b> characters, a <b>fixed</b> character <b>pool</b> to
+                  <b>roll</b> from, <b>character</b> and <b>player</b>
+                  <b>leveling</b> systems, and the signature
+                  <b>auto-battling board</b> complete with <b>trait</b>;
+                  <b>target-selection</b>; <b>movement</b>; and
+                  <b>ability systems</b>.
+                </p>
+                <video
+                  src="../assets/tft/syndra-level-up.mp4"
+                  class="videoplayer col2"
+                  type="video/mp4"
+                  muted
+                  loop
+                ></video>
+                <div class="container-fluid champ-descrip">
+                  <p>
+                    *Ashe: shoots an ice arrow that stuns the first enemy hit<br />
+                    *Braum: puts up a shield, cutting damage from that direction
+                    <br />
+                    Syndra: fires three orbs homing in on the furthest enemy
+                    <br />
+                    *Glacial trait: a low chance of stunning with auto attacks
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col col3">
+              <div class="letter">T</div>
+              <div class="col-content">
+                <p>
+                  The focus was <b>OOP</b>, but I <b>learned</b> a ton of
+                  <b>other</b> skills along the way. Futhermore, despite the
+                  <b>messy</b> code and <b>mysterious</b> bugs, this was the
+                  <b>first</b> time I <b>experienced</b> the
+                  <b>spellbinding excitement</b> of bringing a <b>project</b> to
+                  <b>life</b> from <b>scratch</b>.
+                </p>
+                <video
+                  src="../assets/tft/vi+veigar+varus.mp4"
+                  class="videoplayer col3"
+                  type="video/mp4"
+                  muted
+                  loop
+                ></video>
+                <div class="container-fluid champ-descrip">
+                  <p>
+                    Vi: targets the furthest enemy, charging and knocking them
+                    up
+                    <br />
+                    Varus: shoots an arrow, damaging all enemies in its path
+                    <br />
+                    Veigar: fires a homing orb at the furthest enemy doing extra
+                    damage based on their missing health
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
-        <section class="three">
+        <!------------------------------- End of Page Two ------------------------------->
+
+        <!-- <section class="three">
           <h1 class="hidden-right">Third Page</h1>
         </section>
         <section class="four">
           <h1 class="hidden-left">Fourth Page</h1>
-        </section>
+        </section> -->
       </div>
     </div>
   </body>

@@ -3,12 +3,23 @@
   --b-aqua: rgb(0, 255, 255);
   --b-t-aqua: rgb(0, 255, 255, 0.8);
   --aqua: rgb(50, 250, 250);
+  --d-aqua: rgb(21, 181, 181);
   --t-aqua: rgb(50, 250, 250, 0.8);
   --d-navy: rgb(28, 37, 65);
   --navy: rgb(48, 74, 98);
   --cyan: rgb(13, 115, 119);
   --gray: rgb(50, 50, 50);
   --d-gray: rgb(40, 40, 40);
+}
+
+@font-face {
+  font-family: pixel;
+  src: url("../../assets/fonts/pixel-font.otf") format("opentype");
+}
+
+@font-face {
+  font-family: tournament-organizer;
+  src: url("../../assets/fonts/tournament-organizer.ttf");
 }
 
 /************************** General **************************/
@@ -101,48 +112,59 @@ section {
 .one .grid {
   display: grid;
   grid-template-columns: 1fr 40vw 40vw 1fr;
-  grid-template-rows: 5vh 5vh 65vh 1fr;
+  grid-template-rows: 7vh 7vh 55vh 1fr;
   column-gap: 3vw;
 }
 
 .card-one {
   grid-area: 3 / 2 / span 1 / span 1;
-  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.279);
+  box-shadow: -0.35rem 0.35rem 0.6rem rgb(0, 0, 0, 0.5);
   overflow: hidden;
   border: none;
+  border-radius: 0.3rem;
 }
 
 .card-one:hover > .corner {
   background-color: var(--d-navy);
   display: inline-block;
-  height: 20%;
+  height: 10rem;
   position: absolute;
   margin-left: 100%;
-  transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-5rem) translateX(-5rem);
   border-radius: 50%;
 }
 
+.card-one .cover {
+  background-color: var(--d-navy);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
 .one .card-1 {
-  background-color: var(--navy);
   transition-delay: 600ms;
 }
 
 .one .card-2 {
-  background-color: var(--gray);
-  transition-delay: 750ms;
-}
-
-.one .card-3 {
-  background-color: var(--d-gray);
   transition-delay: 900ms;
 }
 
+.one .card-3 {
+  transition-delay: 1100ms;
+}
+
 .front-card {
+  background-color: var(--d-navy);
+  position: relative;
+  /* border-right: 1px solid var(--d-aqua); */
+  /* border-top: 1px solid var(--d-aqua); */
   z-index: 3;
   transition-timing-function: ease-out;
 }
 
 .middle-card {
+  background-color: rgb(25, 35, 59);
   position: relative;
   top: 0.5rem;
   right: 0.7rem;
@@ -152,6 +174,7 @@ section {
 }
 
 .back-card {
+  background-color: rgb(24, 30, 51);
   position: relative;
   top: 1rem;
   right: 1.4rem;
@@ -160,26 +183,7 @@ section {
   pointer-events: none;
 }
 
-.no-delay {
-  transition-delay: 0ms !important;
-}
-
-.short-delay {
-  transition-delay: 150ms !important;
-}
-
-.long-delay {
-  transition-delay: 300ms !important;
-}
-
-.card-one img {
-  margin: 1rem 1rem;
-  margin-top: auto;
-  border-radius: 5px;
-  transition: all 0.5s;
-}
-
-.card .corner {
+.card-one .corner {
   background-color: var(--d-navy);
   display: inline-block;
   height: 20%;
@@ -192,12 +196,29 @@ section {
 }
 
 .card .arrow {
-  color: var(--aqua);
+  color: var(--d-aqua);
   display: block;
   position: absolute;
   top: 60%;
   left: 25%;
   /* font-size:  */
+}
+
+.card-one h1 {
+  color: var(--d-aqua);
+  margin-top: auto;
+  margin-bottom: min(5cqh, 3rem);
+  text-align: center;
+  font-size: 2cqw !important;
+  font-weight: 600;
+  /* font-family: "tournament-organizer"; */
+}
+
+.card-one img {
+  margin: 0 min(5cqh, 3rem);
+  margin-bottom: 2rem;
+  border-radius: 0.3rem;
+  transition: all 0.5s;
 }
 
 .one .title {
@@ -226,7 +247,7 @@ section {
 
 .one hr {
   margin: 1.5rem 0;
-  transition-delay: 500ms;
+  transition-delay: 650ms;
 }
 
 .one p {
@@ -234,87 +255,105 @@ section {
   transition-delay: 50ms;
 }
 
-/************************** Page Two **************************/ /*ALTERNATIVE IDEA IS TO HAVE THE 3 COLUMNS EACH WITH THE COOL BOX OPENING ANIMATION */
+/************************** Page Two **************************/
 .two {
 }
 
 .two .grid {
   display: grid;
-  height: 100%;
-  grid-template-rows: 20vh fit-content(60vh) 1fr;
-  grid-template-columns: 1fr 80vw 1fr;
+  grid-template-rows: fit-content(10rem) fit-content(30rem) 1fr;
+  grid-template-columns: 5vw 1fr 1fr 1fr 5vw;
+  column-gap: 2rem;
 }
 
-.card-container {
-  grid-area: 2 / 2 / span 1 / span 1;
-  display: flex;
-  justify-content: center;
-}
-
-.card-two {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  min-width: 25rem;
-  border: none;
-  /* border: 5px solid var(--navy); */
-  border-radius: 5px;
-  box-shadow: 2rem 0 2rem rgb(28, 37, 65, 0.6);
-  transition: all 0.3s;
-}
-
-.card-two:not(:first-child) {
-  margin-left: -10rem;
-}
-
-.card-two:hover {
-  transform: translateY(-1rem);
-}
-
-.no-shadow {
-  box-shadow: none;
-}
-
-.shift-left {
-  transform: translateX(-10rem) !important;
-}
-
-.two .title {
+.two header {
   color: var(--aqua);
-  margin-top: 3rem;
-  grid-area: 1 / 2 / span 1 / span 1;
-}
-
-.two .card-1 {
-  z-index: 3;
-  transition-delay: 300ms !important;
-  transition: all 0.3s;
-}
-
-.two .card-2 {
-  z-index: 2;
-  transition-delay: 500ms !important;
-  transition: all 0.3s;
-}
-
-.two .card-3 {
-  z-index: 1;
-  transition-delay: 700ms !important;
-  transition: all 0.3s;
+  margin-top: 4rem;
+  grid-area: 1 / 2 / span 1 / span 3;
 }
 
 .two h1 {
-  transition-delay: 250ms;
+  transition-delay: 200ms;
 }
 
 .two h6 {
-  transition-delay: 275ms;
+  margin: 1rem 0;
+  transition-delay: 400ms;
+}
+
+.two hr {
+  margin-top: 3.5rem;
+}
+
+.col {
+  position: relative;
+  text-align: center;
+}
+
+.col1 {
+  grid-area: 2 / 2 / span 1 / span 1;
+}
+
+.col2 {
+  grid-area: 2 / 3 / span 1 / span 1;
+}
+
+.col3 {
+  grid-area: 2 / 4 / span 1 / span 1;
+}
+
+.letter {
+  color: var(--aqua);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: min(50cqh, 50cqw);
+  font-family: pixel;
+  z-index: -1;
+}
+
+.col-content {
+  height: 100%;
+  width: 100%;
+  background-color: var(--d-navy);
+  opacity: 0;
+}
+
+.col-content > p {
+  text-align: justify;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.videoplayer {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.champ-descrip {
+  background-color: var(--navy);
+  font-size: 11px;
+  border-radius: 10px;
+}
+
+.champ-descrip p {
+  text-align: left;
+  padding: 5px 5px;
+  margin: 1rem 0;
+}
+
+b {
+  color: var(--aqua);
 }
 
 .two img {
 }
 
 .videoplayer {
+  /* width: 20rem; */
 }
 
 /************************** Page Three **************************/
@@ -334,6 +373,19 @@ section {
 }
 
 /************************** Animations **************************/
+
+.no-delay {
+  transition-delay: 0ms !important;
+}
+
+.short-delay {
+  transition-delay: 100ms !important;
+}
+
+.long-delay {
+  transition-delay: 200ms !important;
+}
+
 .hidden-left-sm {
   opacity: 0;
   transform: translateX(-0.7rem);
@@ -360,7 +412,7 @@ section {
 
 .hidden-top {
   opacity: 0;
-  transform: translateY(-100%);
+  transform: translateY(-1rem);
   filter: blur(2px);
 }
 
@@ -375,4 +427,55 @@ section {
   opacity: 0;
   transform: translateX(0.7rem);
   filter: blur(2px);
+}
+
+.box-open {
+  animation: box-open 1s forwards;
+}
+
+.box-close {
+  animation: box-close 1s forwards;
+}
+
+.slide-left {
+  animation: slide-left 1s 0.6s forwards;
+}
+
+@keyframes box-open {
+  0% {
+    opacity: 0;
+    transform: scale(0%, 1%);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(100%, 1%);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(100%, 100%);
+  }
+}
+
+@keyframes box-close {
+  0% {
+    opacity: 1;
+    transform: scale(100%, 100%);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(100%, 1%);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0%, 1%);
+  }
+}
+
+@keyframes slide-left {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
