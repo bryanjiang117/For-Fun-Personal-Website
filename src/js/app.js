@@ -113,9 +113,21 @@ var videoplayers = document.querySelectorAll(".videoplayer");
 for (let i = 0; i < videoplayers.length; i++) {
   videoplayers[i].onmouseover = function () {
     this.play();
+    for (let i = 0; i < cols.length; i++) {
+      cols[i]
+        .getElementsByClassName("col-content")[0]
+        .getElementsByClassName("champ-descrip")[0]
+        .classList.add("drop-down");
+    }
   };
   videoplayers[i].onmouseout = function () {
     this.pause();
+    for (let i = 0; i < cols.length; i++) {
+      cols[i]
+        .getElementsByClassName("col-content")[0]
+        .getElementsByClassName("champ-descrip")[0]
+        .classList.remove("drop-down");
+    }
   };
 }
 
@@ -123,24 +135,39 @@ var cols = document.querySelectorAll(".col");
 var timeouts = new Array(3);
 for (let i = 0; i < cols.length; i++) {
   const colContent = cols[i].getElementsByClassName("col-content")[0];
+  const text = colContent.getElementsByTagName("p")[0];
+  const caption = colContent.getElementsByClassName("champ-descrip")[0];
+  const bold = text.getElementsByTagName("b");
   const letter = cols[i].getElementsByClassName("letter")[0];
   cols[i].addEventListener("mouseenter", () => {
     clearTimeout(timeouts[i]);
     letter.classList.add("box-close");
     letter.classList.remove("box-open");
-    timeouts[i] = setTimeout(openContent, 500, colContent);
+    timeouts[i] = setTimeout(openContent, 500, colContent, text, caption, bold);
   });
   cols[i].addEventListener("mouseleave", () => {
     clearTimeout(timeouts[i]);
     colContent.classList.remove("box-open");
     colContent.classList.add("box-close");
+    text.classList.remove("fade-in");
+    caption.classList.remove("drop-down");
+    for (let i = 0; i < bold.length; i++) {
+      bold[i].classList.remove("turn-aqua");
+    }
     timeouts[i] = setTimeout(openLetter, 500, letter);
   });
 }
 
-function openContent(colContent) {
+function openContent(colContent, text, caption, bold) {
+  // alert(colContent.getElementsByTagName("p")[0].innerHTML);
   colContent.classList.add("box-open");
   colContent.classList.remove("box-close");
+  text.classList.add("fade-in");
+  // caption.classList.add("drop-down");
+  for (let i = 0; i < bold.length; i++) {
+    bold[i].classList.add("turn-aqua");
+  }
+  // text.getElementsByTagName('b').map(bold => bold.classList.add('turn-aqua')); why can't I do this hm
 }
 
 function openLetter(letter) {

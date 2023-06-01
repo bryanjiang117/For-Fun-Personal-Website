@@ -1,6 +1,9 @@
 /* General */
 :root {
-  --bg-color: rgb(255, 247, 212);
+  --beige: rgb(255, 247, 212);
+  --u-yellow: rgb(255, 217, 90);
+  --gold: rgb(254, 185, 20);
+  --d-gold: rgb(255, 165, 30);
 }
 
 body {
@@ -17,7 +20,7 @@ body {
 
 /* Navbar */
 .navbar {
-  background-color: var(--bg-color);
+  background-color: var(--beige);
   width: 100%;
   padding: 1rem 0;
   position: fixed;
@@ -42,7 +45,7 @@ body {
 
 /* Home Page */
 .home-page-container {
-  background-color: var(--bg-color);
+  background-color: var(--beige);
   height: 100vh;
   width: 100%;
 }
@@ -76,7 +79,7 @@ header {
 
 /* This Website */
 .this-website-container {
-  background-color: rgb(255, 217, 90);
+  background-color: var(--u-yellow);
 }
 
 .moon {
@@ -162,11 +165,11 @@ footer li {
 }
 
 footer .btn {
-  color: rgb(255, 247, 212) !important;
+  color: var(--beige) !important;
   font-size: 4vh;
 }
 
 footer .btn:hover,
 footer .btn:active {
-  color: rgb(255, 217, 90) !important;
+  color: var(--gold) !important;
 }
