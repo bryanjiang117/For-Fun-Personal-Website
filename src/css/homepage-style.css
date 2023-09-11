@@ -1,0 +1,60 @@
+/* General */
+:root {
+  --beige: rgb(255, 247, 212);
+  --u-yellow: rgb(255, 217, 90);
+  --gold: rgb(254, 185, 20);
+  --d-gold: rgb(255, 165, 30);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.type-font {
+  font-family: "Nunito", sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--beige);
+  width: 100%;
+  padding: 1rem 0;
+  position: fixed;
+  font-size: 1.2rem;
+  font-weight: 300;
+  box-shadow: 0 0 1rem rgb(76, 61, 61, 0.2);
+}
+
+.navbar-brand a {
+  color: rgb(76, 61, 61);
+  padding-left: 2.5vw;
+  padding-right: 0.5vw;
+}
+
+.nav-item {
+  padding: 0.5rem 1rem;
+}
+
+.nav-item a {
+  color: rgb(76, 61, 61);
+}
+
+/* Main Page */
+.first-page {
+    height: 100vh;
+    width: 100%;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

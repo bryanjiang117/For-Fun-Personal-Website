@@ -118,6 +118,7 @@ section {
 
 .card-one {
   grid-area: 3 / 2 / span 1 / span 1;
+  min-height: 30rem;
   box-shadow: -0.35rem 0.35rem 0.6rem rgb(0, 0, 0, 0.5);
   overflow: hidden;
   border: none;
@@ -125,13 +126,11 @@ section {
 }
 
 .card-one:hover > .corner {
-  background-color: var(--d-navy);
-  display: inline-block;
-  height: 10rem;
-  position: absolute;
-  margin-left: 100%;
   transform: translateY(-5rem) translateX(-5rem);
-  border-radius: 50%;
+}
+
+.card-one:hover > .card-caption {
+  transform: translateY(0) translateX(0);
 }
 
 .card-one .cover {
@@ -186,7 +185,7 @@ section {
 .card-one .corner {
   background-color: var(--d-navy);
   display: inline-block;
-  height: 20%;
+  height: 10rem;
   aspect-ratio: 1 / 1;
   position: absolute;
   margin-left: 100%;
@@ -209,16 +208,26 @@ section {
   margin-top: auto;
   margin-bottom: min(5cqh, 3rem);
   text-align: center;
+  letter-spacing: -2px;
   font-size: 2cqw !important;
-  font-weight: 600;
-  /* font-family: "tournament-organizer"; */
+  font-weight: 200;
 }
 
 .card-one img {
-  margin: 0 min(5cqh, 3rem);
+  /* height: 20rem; */
+  margin: 5rem min(5cqh, 3rem);
   margin-bottom: 2rem;
   border-radius: 0.3rem;
   transition: all 0.5s;
+}
+
+.one .card-caption {
+  color: var(--aqua);
+  margin: auto 0 4rem min(5cqh, 3rem);
+  font-weight: 200;
+  font-size: 70%;
+  transition: 0.5s all;
+  transform: translateY(5rem);
 }
 
 .one .title {
@@ -430,6 +439,10 @@ section {
   filter: blur(2px);
 }
 
+.card-popup-text {
+  animation: card-popup-text 1s forwards;
+}
+
 .box-open {
   animation: box-open 1s forwards;
 }
@@ -452,6 +465,15 @@ section {
 
 .drop-down {
   animation: drop-down ease-out 0.5s forwards;
+}
+
+@keyframes card-popup-text {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }
 
 @keyframes box-open {
